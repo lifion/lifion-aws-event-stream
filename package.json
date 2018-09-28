@@ -42,7 +42,10 @@
     "test": "npm run jest && codecov",
     "version": "auto-changelog -p && git add CHANGELOG.md"
   },
-  "dependencies": {},
+  "dependencies": {
+    "crc": "^3.8.0",
+    "hex-debug": "^2.0.2"
+  },
   "devDependencies": {
     "auto-changelog": "^1.8.0",
     "check-engines": "^1.5.0",
@@ -61,7 +64,10 @@
     "template": "./templates/changelog-template.hbs"
   },
   "eslintConfig": {
-    "extends": "lifion"
+    "extends": "lifion",
+    "rules": {
+      "no-bitwise": "off"
+    }
   },
   "jest": {
     "collectCoverage": true,
