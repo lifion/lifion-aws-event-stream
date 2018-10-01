@@ -43,8 +43,7 @@
     "version": "auto-changelog -p && git add CHANGELOG.md"
   },
   "dependencies": {
-    "crc": "^3.8.0",
-    "hex-debug": "^2.0.2"
+    "crc": "^3.8.0"
   },
   "devDependencies": {
     "auto-changelog": "^1.8.0",
@@ -52,7 +51,7 @@
     "codecov": "^3.1.0",
     "eslint": "^5.6.1",
     "eslint-config-lifion": "^1.0.0",
-    "husky": "^1.0.1",
+    "husky": "^1.1.0",
     "jest": "^23.6.0",
     "jsdoc-to-markdown": "^4.0.1",
     "lint-staged": "^7.3.0",
