@@ -62,12 +62,6 @@
     "commitLimit": false,
     "template": "./templates/changelog-template.hbs"
   },
-  "eslintConfig": {
-    "extends": "lifion",
-    "rules": {
-      "no-bitwise": "off"
-    }
-  },
   "jest": {
     "collectCoverage": true,
     "collectCoverageFrom": [
