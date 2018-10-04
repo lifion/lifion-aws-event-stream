@@ -27,16 +27,15 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "build-docs": "jsdoc2md -t ./templates/README.hbs ./lib/*.js > ./README.md",
+    "build-docs": "jsdoc2md -t ./templates/README.hbs ./lib/*.js > ./README.md && git add ./README.md",
     "build-docs-watch": "npm-watch build-docs",
     "eslint": "eslint . --ext .js,.json --cache",
     "format": "prettier --write '**/*.{md,js,json}' '!reports/**/*.{js,json}'",
-    "jest": "TEST_REPORT_PATH=./reports jest",
+    "jest": "JEST_JUNIT_OUTPUT=./reports/junit/js-test-results.xml jest",
     "jest-watch": "npm run jest -- --watch --coverageReporters=html",
-    "lint": "eslint . --ext .js,.json",
-    "prejest": "mkdir -p ./reports",
+    "lint": "eslint . --ext .js,.json --format junit -o ./reports/junit/js-lint-results.xml",
     "prepare": "check-engines",
-    "test": "npm run jest && codecov",
+    "test": "npm run jest -- --ci --runInBand && codecov",
     "version": "auto-changelog -p && git add CHANGELOG.md"
   },
   "dependencies": {
@@ -50,6 +49,7 @@
     "eslint-config-lifion": "^1.0.0",
     "husky": "^1.1.0",
     "jest": "^23.6.0",
+    "jest-junit": "^5.2.0",
     "jsdoc-to-markdown": "^4.0.1",
     "lint-staged": "^7.3.0",
     "npm-watch": "^0.4.0",
@@ -78,6 +78,10 @@
         "lines": 0
       }
     },
+    "reporters": [
+      "default",
+      "jest-junit"
+    ],
     "rootDir": "./lib",
     "testEnvironment": "node"
   },
