@@ -1,6 +1,6 @@
 {
   "name": "lifion-aws-event-stream",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0",
   "description": "Node.js parser for the application/vnd.amazon.eventstream content-type.",
   "keywords": [
     "aws",
@@ -27,29 +27,28 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "build-docs": "jsdoc2md ./lib/*.js > ./docs/API.md",
+    "build-docs": "jsdoc2md -t ./templates/README.hbs ./lib/*.js > ./README.md",
     "build-docs-watch": "npm-watch build-docs",
     "eslint": "eslint . --ext .js,.json --cache",
     "format": "prettier --write '**/*.{md,js,json}' '!reports/**/*.{js,json}'",
     "jest": "TEST_REPORT_PATH=./reports jest",
     "jest-watch": "npm run jest -- --watch --coverageReporters=html",
     "lint": "eslint . --ext .js,.json",
-    "postbuild-docs": "git add ./docs/API.md",
-    "prebuild-docs": "mkdir -p ./docs",
-    "precommit": "npm run build-docs && lint-staged",
     "prejest": "mkdir -p ./reports",
     "prepare": "check-engines",
     "test": "npm run jest && codecov",
     "version": "auto-changelog -p && git add CHANGELOG.md"
   },
-  "dependencies": {},
+  "dependencies": {
+    "crc": "^3.8.0"
+  },
   "devDependencies": {
     "auto-changelog": "^1.8.0",
     "check-engines": "^1.5.0",
     "codecov": "^3.1.0",
     "eslint": "^5.6.1",
     "eslint-config-lifion": "^1.0.0",
-    "husky": "^1.0.1",
+    "husky": "^1.1.0",
     "jest": "^23.6.0",
     "jsdoc-to-markdown": "^4.0.1",
     "lint-staged": "^7.3.0",
@@ -58,7 +57,12 @@
   },
   "auto-changelog": {
     "commitLimit": false,
-    "template": "./templates/changelog-template.hbs"
+    "template": "./templates/CHANGELOG.hbs"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run build-docs && lint-staged"
+    }
   },
   "jest": {
     "collectCoverage": true,

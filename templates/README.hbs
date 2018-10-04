@@ -1,0 +1,69 @@
+# lifion-aws-event-stream
+
+Node.js parser for binary streams under the **application/vnd.amazon.eventstream** content-type.
+
+## Getting Started
+
+To install the module:
+
+```sh
+npm install lifion-aws-event-stream --save
+```
+
+The module exports a [parse](#module_lifion-aws-event-stream.parse) function and a [Parser](#module_lifion-aws-event-stream.Parser) stream. To use the [parse](#module_lifion-aws-event-stream.parse) function:
+
+```js
+const { parse } = require('lifion-aws-event-stream');
+
+const buffer = Buffer.from('000000100000000005c248eb7d98c8ff', 'hex');
+console.log(parse(buffer)); // { headers: {}, payload: '' }
+```
+
+To use the [Parser](#module_lifion-aws-event-stream.Parser) stream:
+
+```js
+const { Parser } = require('lifion-aws-event-stream');
+
+const parser = new Parser();
+parser.on('data', console.log); // { headers: {}, payload: '' }
+
+const buffer = Buffer.from('000000100000000005c248eb7d98c8ff', 'hex');
+parser.write(buffer);
+```
+
+Pipe an HTTP response to parse the messages as they arrive:
+
+```js
+const got = require('got');
+const { Parser } = require('lifion-aws-event-stream');
+const { pipeline } = require('stream');
+
+pipeline([
+  got('/', …),
+  new Parser(),
+  new Writable({
+    objectMode: true,
+    write(data, encoding, callback) {
+      console.log(data);
+      callback();
+    }
+  }),
+]);
+```
+
+This project's implementation is based on:
+
+- https://github.com/aws/aws-sdk-ruby/tree/master/gems/aws-eventstream
+- https://github.com/awslabs/aws-c-event-stream
+
+## API Reference
+
+{{#module name="lifion-aws-event-stream"}}
+{{>member-index~}}
+{{>separator~}}
+{{>members~}}
+{{/module}}
+
+## License
+
+[MIT](./LICENSE)
