@@ -34,7 +34,6 @@
     "jest": "TEST_REPORT_PATH=./reports jest",
     "jest-watch": "npm run jest -- --watch --coverageReporters=html",
     "lint": "eslint . --ext .js,.json",
-    "precommit": "npm run build-docs && lint-staged",
     "prejest": "mkdir -p ./reports",
     "prepare": "check-engines",
     "test": "npm run jest && codecov",
@@ -59,6 +58,11 @@
   "auto-changelog": {
     "commitLimit": false,
     "template": "./templates/CHANGELOG.hbs"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run build-docs && lint-staged"
+    }
   },
   "jest": {
     "collectCoverage": true,
