@@ -27,14 +27,14 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "build-docs": "jsdoc2md -t ./templates/README.hbs ./lib/*.js > ./README.md",
+    "build-docs": "jsdoc2md -t ./templates/README.hbs ./lib/*.js > ./README.md && git add ./README.md",
     "build-docs-watch": "npm-watch build-docs",
     "eslint": "eslint . --ext .js,.json --cache",
     "format": "prettier --write '**/*.{md,js,json}' '!reports/**/*.{js,json}'",
-    "jest": "TEST_REPORT_PATH=./reports jest",
+    "jest": "TEST_REPORT_PATH=./reports/jest jest",
     "jest-watch": "npm run jest -- --watch --coverageReporters=html",
     "lint": "eslint . --ext .js,.json",
-    "prejest": "mkdir -p ./reports",
+    "prejest": "mkdir -p ./reports/jest",
     "prepare": "check-engines",
     "test": "npm run jest && codecov",
     "version": "auto-changelog -p && git add CHANGELOG.md"
