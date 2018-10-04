@@ -19,7 +19,9 @@ jobs:
       - run: npm run lint
       - run: npm test
       - store_test_results:
-          path: ./reports
+          path: ./reports/junit
+      - store_artifacts:
+          path: ./reports/junit
 
   deploy:
     docker:
