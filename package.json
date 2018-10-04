@@ -27,15 +27,13 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "build-docs": "jsdoc2md ./lib/*.js > ./docs/API.md",
+    "build-docs": "jsdoc2md -t ./templates/README.hbs ./lib/*.js > ./README.md",
     "build-docs-watch": "npm-watch build-docs",
     "eslint": "eslint . --ext .js,.json --cache",
     "format": "prettier --write '**/*.{md,js,json}' '!reports/**/*.{js,json}'",
     "jest": "TEST_REPORT_PATH=./reports jest",
     "jest-watch": "npm run jest -- --watch --coverageReporters=html",
     "lint": "eslint . --ext .js,.json",
-    "postbuild-docs": "git add ./docs/API.md",
-    "prebuild-docs": "mkdir -p ./docs",
     "precommit": "npm run build-docs && lint-staged",
     "prejest": "mkdir -p ./reports",
     "prepare": "check-engines",
@@ -60,7 +58,7 @@
   },
   "auto-changelog": {
     "commitLimit": false,
-    "template": "./templates/changelog-template.hbs"
+    "template": "./templates/CHANGELOG.hbs"
   },
   "jest": {
     "collectCoverage": true,
