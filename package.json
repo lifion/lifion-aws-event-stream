@@ -1,6 +1,6 @@
 {
   "name": "lifion-aws-event-stream",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Node.js parser for the application/vnd.amazon.eventstream content-type.",
   "keywords": [
     "aws",
