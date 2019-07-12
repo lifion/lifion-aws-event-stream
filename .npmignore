@@ -1,6 +1,6 @@
 *.test.js
 *.test.json
 /.*
+/coverage
 /docs
-/reports
 /templates
