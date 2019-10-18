@@ -1,0 +1,16 @@
+{
+  "collectCoverage": true,
+  "collectCoverageFrom": ["**/*.js"],
+  "coverageDirectory": "../coverage",
+  "coverageReporters": ["clover", "lcov", "text"],
+  "coverageThreshold": {
+    "global": {
+      "branches": 0,
+      "functions": 0,
+      "lines": 0,
+      "statements": 0
+    }
+  },
+  "rootDir": "./lib",
+  "testEnvironment": "node"
+}

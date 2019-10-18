@@ -1,0 +1,10 @@
+{
+  "branchPrefix": "feature/renovate-",
+  "engines": {
+    "enabled": false
+  },
+  "extends": [
+    "config:base"
+  ],
+  "rangeStrategy": "bump"
+}

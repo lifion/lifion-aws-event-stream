@@ -1,6 +1,6 @@
 {
   "name": "lifion-aws-event-stream",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Node.js parser for the application/vnd.amazon.eventstream content-type.",
   "keywords": [
     "aws",
@@ -13,10 +13,17 @@
     "stream"
   ],
   "author": "Edgardo Avilés <Edgardo.Aviles@ADP.com>",
+  "maintainers": [
+    "Chen Doron <Chen.Doron@ADP.com>",
+    "Edgardo Avilés <Edgardo.Aviles@ADP.com>",
+    "Jenny Eckstein <Jenny.Eckstein@ADP.com>",
+    "Zaid Masud <Zaid.Masud@ADP.com>"
+  ],
+  "contributors": [],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lifion/lifion-aws-event-stream.git"
+    "url": "https://github.com/lifion/lifion-aws-event-stream.git"
   },
   "bugs": {
     "url": "https://github.com/lifion/lifion-aws-event-stream/issues"
@@ -29,78 +36,34 @@
   "scripts": {
     "build-docs": "jsdoc2md -t ./templates/README.hbs ./lib/*.js > ./README.md && git add ./README.md",
     "build-docs-watch": "npm-watch build-docs",
-    "eslint": "eslint . --ext .js,.json",
+    "eslint": "eslint . --ext .js,.json --ignore-pattern='!.*.*'",
     "format": "prettier --write '**/*.{md,js,json}' '!coverage/**/*.{js,json}'",
+    "jest": "jest -c ./.jest.json",
     "prepare": "check-engines",
-    "test": "jest --ci --runInBand && codecov",
-    "test-watch": "jest --watchAll --coverageReporters=html",
+    "test": "npm run jest -- --ci --runInBand && codecov",
     "version": "auto-changelog -p && git add CHANGELOG.md"
   },
   "dependencies": {
     "crc": "^3.8.0"
   },
   "devDependencies": {
-    "auto-changelog": "^1.14.1",
+    "auto-changelog": "^1.16.1",
     "check-engines": "^1.5.0",
-    "codecov": "^3.5.0",
-    "eslint": "^5.16.0",
-    "eslint-config-lifion": "^1.2.6",
-    "husky": "^3.0.0",
-    "jest": "^24.8.0",
-    "jsdoc-to-markdown": "^5.0.0",
-    "lint-staged": "^9.2.0",
+    "codecov": "^3.6.1",
+    "eslint": "^6.5.1",
+    "eslint-config-lifion": "^1.3.2",
+    "husky": "^3.0.9",
+    "jest": "^24.9.0",
+    "jsdoc-to-markdown": "^5.0.2",
+    "lint-staged": "^9.4.2",
     "npm-watch": "^0.6.0",
     "prettier": "^1.18.2"
   },
-  "auto-changelog": {
-    "commitLimit": false,
-    "template": "./templates/CHANGELOG.hbs"
-  },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run build-docs && lint-staged"
+      "pre-commit": "npm run build-docs && lint-staged",
+      "pre-push": "npm run eslint && npm run jest"
     }
-  },
-  "jest": {
-    "collectCoverage": true,
-    "collectCoverageFrom": [
-      "**/*.js"
-    ],
-    "coverageDirectory": "../coverage",
-    "coverageThreshold": {
-      "global": {
-        "statements": 0,
-        "branches": 0,
-        "functions": 0,
-        "lines": 0
-      }
-    },
-    "rootDir": "./lib",
-    "testEnvironment": "node"
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.{json,md}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
-  "prettier": {
-    "printWidth": 100,
-    "singleQuote": true
-  },
-  "renovate": {
-    "branchPrefix": "feature/renovate-",
-    "engines": {
-      "enabled": false
-    },
-    "extends": [
-      "config:base"
-    ],
-    "rangeStrategy": "bump"
   },
   "watch": {
     "build-docs": {
@@ -108,5 +71,10 @@
         "./lib"
       ]
     }
+  },
+  "@lifion/core-commons": {
+    "template": "public",
+    "updated": "2019-08-27T00:09:41.983Z",
+    "version": "2.3.3"
   }
 }
