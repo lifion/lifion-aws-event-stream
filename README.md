@@ -59,11 +59,20 @@ This project's implementation is based on:
 ## API Reference
 
 - [lifion-aws-event-stream](#module_lifion-aws-event-stream)
-  - _static_
-    - [.parse(buffer)](#module_lifion-aws-event-stream.parse) ⇒ <code>object</code>
-  - _inner_
-    - [~Parser](#module_lifion-aws-event-stream.Parser) ⇐ [<code>Transform</code>](https://nodejs.org/dist/latest-v10.x/docs/api/stream.html#stream_class_stream_transform)
+  - [.Parser](#Parser) ⇐ <code>Transform</code>
+  - [.parse(buffer)](#module_lifion-aws-event-stream.parse) ⇒ <code>object</code>
 
+<a name="Parser"></a>
+
+### eventStream.Parser ⇐ <code>Transform</code>
+
+A transform stream that calls parse with the binary data written to it. Can be used to pipe
+a response stream from an AWS service HTTP request. The stream will emit errors thrown during
+parse calls.
+
+**Kind**: static class of [<code>lifion-aws-event-stream</code>](#module_lifion-aws-event-stream)  
+**Extends**: <code>Transform</code>  
+**See**: https://nodejs.org/dist/latest-v10.x/docs/api/stream.html#stream_class_stream_transform  
 <a name="module_lifion-aws-event-stream.parse"></a>
 
 ### eventStream.parse(buffer) ⇒ <code>object</code>
@@ -87,17 +96,6 @@ Parses the specified buffer with vnd.amazon.eventstream data into an object.
 | Param  | Type                | Description          |
 | ------ | ------------------- | -------------------- |
 | buffer | <code>Buffer</code> | The buffer to parse. |
-
-<a name="module_lifion-aws-event-stream.Parser"></a>
-
-### lifion-aws-event-stream~Parser ⇐ [<code>Transform</code>](https://nodejs.org/dist/latest-v10.x/docs/api/stream.html#stream_class_stream_transform)
-
-A transform stream that calls parse with the binary data written to it. Can be used to pipe
-a response stream from an AWS service HTTP request. The stream will emit errors thrown during
-parse calls.
-
-**Kind**: inner class of [<code>lifion-aws-event-stream</code>](#module_lifion-aws-event-stream)  
-**Extends**: [<code>Transform</code>](https://nodejs.org/dist/latest-v10.x/docs/api/stream.html#stream_class_stream_transform)
 
 ## License
 
