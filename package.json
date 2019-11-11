@@ -1,6 +1,6 @@
 {
   "name": "lifion-aws-event-stream",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Node.js parser for the application/vnd.amazon.eventstream content-type.",
   "keywords": [
     "aws",
@@ -38,9 +38,8 @@
     "build-docs-watch": "npm-watch build-docs",
     "eslint": "eslint . --ext .js,.json --ignore-pattern='!.*.*'",
     "format": "prettier --write '**/*.{md,js,json}' '!coverage/**/*.{js,json}'",
-    "jest": "jest -c ./.jest.json",
     "prepare": "check-engines",
-    "test": "npm run jest -- --ci --runInBand && codecov",
+    "test": "jest -c ./.jest.json",
     "version": "auto-changelog -p && git add CHANGELOG.md"
   },
   "dependencies": {
@@ -51,7 +50,7 @@
     "check-engines": "^1.5.0",
     "codecov": "^3.6.1",
     "eslint": "^6.6.0",
-    "eslint-config-lifion": "^1.3.2",
+    "eslint-config-lifion": "^1.3.3",
     "husky": "^3.0.9",
     "jest": "^24.9.0",
     "jsdoc-to-markdown": "^5.0.2",
@@ -62,7 +61,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run build-docs && lint-staged",
-      "pre-push": "npm run eslint && npm run jest"
+      "pre-push": "npm run eslint && npm test"
     }
   },
   "watch": {
@@ -74,7 +73,7 @@
   },
   "@lifion/core-commons": {
     "template": "public",
-    "updated": "2019-08-27T00:09:41.983Z",
-    "version": "2.3.3"
+    "updated": "2019-11-11T22:32:23.850Z",
+    "version": "2.3.4"
   }
 }
