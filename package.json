@@ -46,7 +46,7 @@
     "crc": "^3.8.0"
   },
   "devDependencies": {
-    "auto-changelog": "^1.16.2",
+    "auto-changelog": "^1.16.4",
     "check-engines": "^1.5.0",
     "codecov": "^3.6.5",
     "eslint": "^6.8.0",
