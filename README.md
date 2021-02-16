@@ -59,18 +59,20 @@ This project's implementation is based on:
 ## API Reference
 
 - [lifion-aws-event-stream](#module_lifion-aws-event-stream)
-  - [.Parser](#Parser) ⇐ <code>Transform</code>
-  - [.parse(buffer)](#module_lifion-aws-event-stream.parse) ⇒ <code>object</code>
+  - _global_
+    - [Parser](#Parser) ⇐ <code>Transform</code>
+  - _static_
+    - [.parse(buffer)](#module_lifion-aws-event-stream.parse) ⇒ <code>object</code>
 
 <a name="Parser"></a>
 
-### eventStream.Parser ⇐ <code>Transform</code>
+### lifion-aws-event-streamParser ⇐ <code>Transform</code>
 
 A transform stream that calls parse with the binary data written to it. Can be used to pipe
 a response stream from an AWS service HTTP request. The stream will emit errors thrown during
 parse calls.
 
-**Kind**: static class of [<code>lifion-aws-event-stream</code>](#module_lifion-aws-event-stream)  
+**Kind**: global class of [<code>lifion-aws-event-stream</code>](#module_lifion-aws-event-stream)  
 **Extends**: <code>Transform</code>  
 **See**: https://nodejs.org/dist/latest-v10.x/docs/api/stream.html#stream_class_stream_transform  
 <a name="module_lifion-aws-event-stream.parse"></a>
