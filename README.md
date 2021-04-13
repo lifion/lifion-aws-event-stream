@@ -62,7 +62,7 @@ This project's implementation is based on:
   - _global_
     - [Parser](#Parser) ⇐ <code>Transform</code>
   - _static_
-    - [.parse(buffer)](#module_lifion-aws-event-stream.parse) ⇒ <code>object</code>
+    - [.parse(buffer)](#module_lifion-aws-event-stream.parse) ⇒ <code>Object</code>
 
 <a name="Parser"></a>
 
@@ -77,12 +77,12 @@ parse calls.
 **See**: https://nodejs.org/dist/latest-v10.x/docs/api/stream.html#stream_class_stream_transform  
 <a name="module_lifion-aws-event-stream.parse"></a>
 
-### eventStream.parse(buffer) ⇒ <code>object</code>
+### eventStream.parse(buffer) ⇒ <code>Object</code>
 
 Parses the specified buffer with vnd.amazon.eventstream data into an object.
 
 **Kind**: static method of [<code>lifion-aws-event-stream</code>](#module_lifion-aws-event-stream)  
-**Returns**: <code>object</code> - The parsed vnd.amazon.eventstream object.  
+**Returns**: <code>Object</code> - The parsed vnd.amazon.eventstream object.  
 **Throws**:
 
 - <code>Error</code> Whenever:
