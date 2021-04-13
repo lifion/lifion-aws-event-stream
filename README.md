@@ -58,16 +58,16 @@ This project's implementation is based on:
 
 ## API Reference
 
-- [lifion-aws-event-stream](#module_lifion-aws-event-stream)
-  - _global_
-    - [Parser](#Parser) ⇐ <code>Transform</code>
-  - _static_
-    - [.parse(buffer)](#module_lifion-aws-event-stream.parse) ⇒ <code>Object</code>
+
+* [lifion-aws-event-stream](#module_lifion-aws-event-stream)
+    * _global_
+        * [Parser](#Parser) ⇐ <code>Transform</code>
+    * _static_
+        * [.parse(buffer)](#module_lifion-aws-event-stream.parse) ⇒ <code>Object</code>
 
 <a name="Parser"></a>
 
 ### lifion-aws-event-streamParser ⇐ <code>Transform</code>
-
 A transform stream that calls parse with the binary data written to it. Can be used to pipe
 a response stream from an AWS service HTTP request. The stream will emit errors thrown during
 parse calls.
@@ -78,7 +78,6 @@ parse calls.
 <a name="module_lifion-aws-event-stream.parse"></a>
 
 ### eventStream.parse(buffer) ⇒ <code>Object</code>
-
 Parses the specified buffer with vnd.amazon.eventstream data into an object.
 
 **Kind**: static method of [<code>lifion-aws-event-stream</code>](#module_lifion-aws-event-stream)  
@@ -95,9 +94,11 @@ Parses the specified buffer with vnd.amazon.eventstream data into an object.
   - The checksum of the message doesn't matches the calculated checksum.
   - The header value type is unknown.
 
-| Param  | Type                | Description          |
-| ------ | ------------------- | -------------------- |
+
+| Param | Type | Description |
+| --- | --- | --- |
 | buffer | <code>Buffer</code> | The buffer to parse. |
+
 
 ## License
 
