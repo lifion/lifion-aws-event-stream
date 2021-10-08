@@ -1,5 +1,7 @@
 # lifion-aws-event-stream
 
+[![npm version](https://badge.fury.io/js/lifion-aws-event-stream.svg)](http://badge.fury.io/js/lifion-aws-event-stream) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](CODE_OF_CONDUCT.md)
+
 Node.js parser for binary streams under the **application/vnd.amazon.eventstream** content-type.
 
 ## Getting Started
