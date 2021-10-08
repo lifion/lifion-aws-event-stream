@@ -1,5 +1,5 @@
 {
-  "extends": "lifion",
+  "extends": "./node_modules/core-commons/shared/eslint.json",
   "overrides": [
     {
       "files": ["lib/index.js"],
