@@ -14,6 +14,10 @@
           }
         ]
       }
+    },
+    {
+      "files": ["lib/index.test.js"],
+      "rules": { "no-secrets/no-secrets": "warn" }
     }
   ]
 }

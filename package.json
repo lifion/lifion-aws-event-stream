@@ -51,6 +51,7 @@
     "crc": "^3.8.0"
   },
   "devDependencies": {
+    "@types/crc": "^3.4.0",
     "core-commons": "^1.0.0-alpha.0"
   },
   "watch": {
