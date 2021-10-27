@@ -14,12 +14,9 @@
           }
         ]
       }
-    },
-    {
-      "files": ["lib/index.test.js"],
-      "rules": {
-        "no-secrets/no-secrets": ["error", { "ignoreContent": ["SubscribeToShardEvent"] }]
-      }
     }
-  ]
+  ],
+  "rules": {
+    "no-secrets/no-secrets": ["error", { "ignoreContent": ["SubscribeToShardEvent"] }]
+  }
 }

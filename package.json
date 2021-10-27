@@ -22,7 +22,7 @@
     "Chen Doron <Chen.Doron@ADP.com>",
     "Zaid Masud <Zaid.Masud@ADP.com>"
   ],
-  "license": "MIT",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/lifion/lifion-aws-event-stream.git"
@@ -33,8 +33,13 @@
   "homepage": "https://github.com/lifion/lifion-aws-event-stream#readme",
   "main": "lib/index.js",
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=14.5.0"
   },
+  "files": [
+    "lib",
+    "!**/*.test.js",
+    "!**/*.test.json"
+  ],
   "scripts": {
     "build-docs": "commons",
     "build-types": "commons",
