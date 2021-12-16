@@ -22,7 +22,7 @@
     "Chen Doron <Chen.Doron@ADP.com>",
     "Zaid Masud <Zaid.Masud@ADP.com>"
   ],
-  "license": "MIT",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/lifion/lifion-aws-event-stream.git"
@@ -33,36 +33,31 @@
   "homepage": "https://github.com/lifion/lifion-aws-event-stream#readme",
   "main": "lib/index.js",
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=14.5.0"
   },
+  "files": [
+    "lib",
+    "!**/*.test.js",
+    "!**/*.test.json"
+  ],
   "scripts": {
-    "build-docs": "jsdoc2md -t ./templates/README.hbs ./lib/*.js > ./README.md && git add ./README.md",
-    "build-docs-watch": "npm-watch build-docs",
-    "eslint": "eslint . --ext .js,.json --ignore-pattern='!.*.*'",
-    "format": "prettier --write '**/*.{md,js,json}' '!coverage/**/*.{js,json}'",
-    "prepare": "husky install",
-    "postinstall": "husky install",
-    "prepublishOnly": "pinst --disable",
-    "postpublish": "pinst --enable",
-    "test": "jest -c ./.jest.json",
-    "version": "auto-changelog -p && git add CHANGELOG.md"
+    "build-docs": "commons",
+    "build-types": "commons",
+    "check-types": "commons",
+    "clean-types": "commons",
+    "eslint": "commons",
+    "prepare": "commons",
+    "prepublishOnly": "npm run build-types && npm run prettier",
+    "prettier": "commons",
+    "test": "commons",
+    "version": "commons"
   },
   "dependencies": {
     "crc": "^3.8.0"
   },
   "devDependencies": {
-    "auto-changelog": "^2.3.0",
-    "check-engines": "^1.5.0",
-    "codecov": "^3.8.3",
-    "eslint": "^7.32.0",
-    "eslint-config-lifion": "^2.2.1",
-    "husky": "^7.0.2",
-    "jest": "^27.2.4",
-    "jsdoc-to-markdown": "^7.0.1",
-    "lint-staged": "^11.2.0",
-    "npm-watch": "^0.11.0",
-    "pinst": "^2.1.6",
-    "prettier": "^2.4.1"
+    "@types/crc": "^3.4.0",
+    "core-commons": "^1.0.0-alpha.3"
   },
   "watch": {
     "build-docs": {
@@ -70,10 +65,5 @@
         "./lib"
       ]
     }
-  },
-  "@lifion/core-commons": {
-    "template": "public",
-    "updated": "2019-11-11T22:32:23.850Z",
-    "version": "2.3.4"
   }
 }
