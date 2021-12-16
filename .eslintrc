@@ -1,5 +1,8 @@
 {
   "extends": "./node_modules/core-commons/shared/eslint.json",
+  "rules": {
+    "no-secrets/no-secrets": ["error", { "ignoreContent": ["SubscribeToShardEvent"] }]
+  },
   "overrides": [
     {
       "files": ["lib/index.js"],
@@ -15,8 +18,5 @@
         ]
       }
     }
-  ],
-  "rules": {
-    "no-secrets/no-secrets": ["error", { "ignoreContent": ["SubscribeToShardEvent"] }]
-  }
+  ]
 }

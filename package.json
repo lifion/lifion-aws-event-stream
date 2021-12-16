@@ -65,10 +65,5 @@
         "./lib"
       ]
     }
-  },
-  "@lifion/core-commons": {
-    "template": "public",
-    "updated": "2019-11-11T22:32:23.850Z",
-    "version": "2.3.4"
   }
 }
